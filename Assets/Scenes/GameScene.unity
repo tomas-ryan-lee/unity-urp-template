@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728feeaf9f463074790d73d731c0ee1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
+  _musicChannel: {fileID: 11400000, guid: fe0a9663f74ed9e489acddeb4c1ee4a0, type: 2}
   _audioSource: {fileID: 306458151}
   mainMenu: {fileID: 8300000, guid: 54ecd1ec16ce83b408bcf777e25ee9ac, type: 3}
 --- !u!4 &306458153
@@ -663,6 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f82acd3ce8ca743a7622b571088e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXManager
+  _SFXChannel: {fileID: 11400000, guid: 0abf5546d11077d4792adc32e0427621, type: 2}
   _audioSource: {fileID: 374595381}
   buttonSfx: {fileID: 8300000, guid: f40ac791ca2a3434a8236a898587c686, type: 3}
 --- !u!4 &374595383
@@ -1508,6 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   _pauseKey: 27
+  _gamePauseChannel: {fileID: 11400000, guid: 27b03607b1a1e3d478c810088ed8abc7, type: 2}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1759,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b85607be615db47b48313d4f696e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _state: 0
+  _gameMenuChannel: {fileID: 11400000, guid: d7f1762821f83d547aaaedcd2b854d22, type: 2}
+  _gamePlayChannel: {fileID: 11400000, guid: 03a5c50a771136c4bbf5ade8f278bcc8, type: 2}
+  _gamePauseChannel: {fileID: 11400000, guid: 27b03607b1a1e3d478c810088ed8abc7, type: 2}
+  _gameResumeChannel: {fileID: 11400000, guid: 63e18f8ea23104540a844a0cbed02e8f, type: 2}
+  _gameVictoryChannel: {fileID: 11400000, guid: e9e260141993c7643b7b61b1b0852f09, type: 2}
+  _gameOverChannel: {fileID: 11400000, guid: 14a7057379d092c4697c5de93ef0b0b6, type: 2}
+  _gameQuitChannel: {fileID: 11400000, guid: 3eef86865ab81404dbe3a5b21d601373, type: 2}
+  _musicChannel: {fileID: 11400000, guid: fe0a9663f74ed9e489acddeb4c1ee4a0, type: 2}
 --- !u!4 &986755662
 Transform:
   m_ObjectHideFlags: 0
@@ -1857,7 +1869,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1999805451}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OnGameMenu
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2831,6 +2843,14 @@ MonoBehaviour:
   _gamePauseScreen: {fileID: 1239920979}
   _gameVictoryScreen: {fileID: 481912729}
   _gameOverScreen: {fileID: 1637197325}
+  _gameMenuChannel: {fileID: 11400000, guid: d7f1762821f83d547aaaedcd2b854d22, type: 2}
+  _gamePlayChannel: {fileID: 11400000, guid: 03a5c50a771136c4bbf5ade8f278bcc8, type: 2}
+  _gamePauseChannel: {fileID: 11400000, guid: 27b03607b1a1e3d478c810088ed8abc7, type: 2}
+  _gameResumeChannel: {fileID: 11400000, guid: 63e18f8ea23104540a844a0cbed02e8f, type: 2}
+  _gameVictoryChannel: {fileID: 11400000, guid: e9e260141993c7643b7b61b1b0852f09, type: 2}
+  _gameOverChannel: {fileID: 11400000, guid: 14a7057379d092c4697c5de93ef0b0b6, type: 2}
+  _gameQuitChannel: {fileID: 11400000, guid: 3eef86865ab81404dbe3a5b21d601373, type: 2}
+  _SFXManager: {fileID: 11400000, guid: 0abf5546d11077d4792adc32e0427621, type: 2}
 --- !u!4 &1999805452
 Transform:
   m_ObjectHideFlags: 0

@@ -4,20 +4,25 @@ public class SFXManager : MonoBehaviour
 {
     public static SFXManager Instance { get; private set; }
 
+    [Header("Events Channels")]
     [SerializeField]
-    private AudioSource _audioSource;
+    private AudioEventChannel _SFXChannel;
 
     [Header("SFX Audio")]
+    [SerializeField]
+    private AudioSource _audioSource;
     public AudioClip buttonSfx;
 
     private void OnEnable()
     {
-        EventManager.OnSFXPlayed += PlaySFX;
+        if (_SFXChannel != null)
+            _SFXChannel.OnEventRaised += PlaySFX;
     }
 
     private void OnDisable()
     {
-        EventManager.OnSFXPlayed -= PlaySFX;
+        if (_SFXChannel != null)
+            _SFXChannel.OnEventRaised -= PlaySFX;
     }
 
     private void Awake()

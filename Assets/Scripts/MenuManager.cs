@@ -4,7 +4,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
 
-    [Header("Ui Screens")]
+    [Header("UI Screens")]
     [SerializeField]
     private Canvas _gameMenuScreen;
 
@@ -20,6 +20,31 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private Canvas _gameOverScreen;
 
+    [Header("Events Channels")]
+    [SerializeField]
+    private VoidEventChannel _gameMenuChannel;
+
+    [SerializeField]
+    private VoidEventChannel _gamePlayChannel;
+
+    [SerializeField]
+    private VoidEventChannel _gamePauseChannel;
+
+    [SerializeField]
+    private VoidEventChannel _gameResumeChannel;
+
+    [SerializeField]
+    private VoidEventChannel _gameVictoryChannel;
+
+    [SerializeField]
+    private VoidEventChannel _gameOverChannel;
+
+    [SerializeField]
+    private VoidEventChannel _gameQuitChannel;
+
+    [SerializeField]
+    private AudioEventChannel _SFXManager;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -32,59 +57,51 @@ public class MenuManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void OnGameMenu(bool isSFXPlayed = false)
+    public void OnGameMenu()
     {
         DisableAllScreen();
         _gameMenuScreen.enabled = true;
-
-        if (isSFXPlayed)
-            EventManager.OnSFXPlayedEvent(SFXManager.Instance.buttonSfx);
-
-        EventManager.OnGameMenuEvent();
+        _gameMenuChannel?.RaiseEvent();
     }
 
     public void OnGamePlay()
     {
         DisableAllScreen();
         _gamePlayScreen.enabled = true;
-        EventManager.OnSFXPlayedEvent(SFXManager.Instance.buttonSfx);
-
-        EventManager.OnGamePlayEvent();
+        _gamePlayChannel?.RaiseEvent();
+        _SFXManager?.RaiseEvent(SFXManager.Instance.buttonSfx);
     }
 
     public void OnGamePause()
     {
         DisableAllScreen();
         _gamePauseScreen.enabled = true;
-        EventManager.OnSFXPlayedEvent(SFXManager.Instance.buttonSfx);
+        _SFXManager?.RaiseEvent(SFXManager.Instance.buttonSfx);
     }
 
     public void OnGameResume()
     {
         DisableAllScreen();
         _gamePlayScreen.enabled = true;
-        EventManager.OnSFXPlayedEvent(SFXManager.Instance.buttonSfx);
-
-        EventManager.OnGameResumeEvent();
+        _gameResumeChannel?.RaiseEvent();
+        _SFXManager?.RaiseEvent(SFXManager.Instance.buttonSfx);
     }
 
     public void OnGameVictory()
     {
         DisableAllScreen();
         _gameVictoryScreen.enabled = true;
-
-        EventManager.OnGameVictoryEvent();
+        _gameVictoryChannel?.RaiseEvent();
     }
 
     public void OnGameOver()
     {
         DisableAllScreen();
         _gameOverScreen.enabled = true;
-
-        EventManager.OnGameOverEvent();
+        _gameOverChannel?.RaiseEvent();
     }
 
-    public void OnGameQuit() => EventManager.OnGameQuitEvent();
+    public void OnGameQuit() => _gameQuitChannel?.RaiseEvent();
 
     private void DisableAllScreen()
     {

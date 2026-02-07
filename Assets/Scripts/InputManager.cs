@@ -4,8 +4,13 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance { get; private set; }
 
+    [Header("Key Codes")]
     [SerializeField]
     private KeyCode _pauseKey = KeyCode.Escape;
+
+    [Header("Events Channels")]
+    [SerializeField]
+    private VoidEventChannel _gamePauseChannel;
 
     private void Awake()
     {
@@ -27,8 +32,6 @@ public class InputManager : MonoBehaviour
     void OnPressPauseKey()
     {
         if (Input.GetKeyDown(_pauseKey))
-        {
-            EventManager.OnGamePauseEvent();
-        }
+            _gamePauseChannel?.RaiseEvent();
     }
 }

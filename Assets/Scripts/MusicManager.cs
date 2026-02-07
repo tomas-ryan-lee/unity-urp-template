@@ -4,20 +4,25 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance { get; private set; }
 
+    [Header("Events Channels")]
     [SerializeField]
-    private AudioSource _audioSource;
+    private AudioEventChannel _musicChannel;
 
     [Header("Music Audio")]
+    [SerializeField]
+    private AudioSource _audioSource;
     public AudioClip mainMenu;
 
     private void OnEnable()
     {
-        EventManager.OnMusicPlayed += PlayMusic;
+        if (_musicChannel != null)
+            _musicChannel.OnEventRaised += PlayMusic;
     }
 
     private void OnDisable()
     {
-        EventManager.OnMusicPlayed -= PlayMusic;
+        if (_musicChannel != null)
+            _musicChannel.OnEventRaised -= PlayMusic;
     }
 
     private void Awake()
