@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField]
     private GameState _state;
 
     [Header("Events Channels")]

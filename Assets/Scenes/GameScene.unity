@@ -1643,6 +1643,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3413363132336855520, guid: a82f026f1ab3b9044a9c23da28d48c2f, type: 3}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: ChangeSceneButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Scene1
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1999805451}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OnGamePlay
@@ -1759,7 +1771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b85607be615db47b48313d4f696e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _state: 0
   _gameMenuChannel: {fileID: 11400000, guid: d7f1762821f83d547aaaedcd2b854d22, type: 2}
   _gamePlayChannel: {fileID: 11400000, guid: 03a5c50a771136c4bbf5ade8f278bcc8, type: 2}
   _gamePauseChannel: {fileID: 11400000, guid: 27b03607b1a1e3d478c810088ed8abc7, type: 2}
